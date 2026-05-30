@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block title %}Tableau de Bord - SkinScan AI{% endblock %}
+
+{% block content %}
+<h2 class="page-title">Tableau de Bord Médical</h2>
+<p class="page-subtitle">Statistiques et analyses en temps réel</p>
+
+<div class="stats-grid">
+    <div class="stat-card blue">
+        <div class="stat-icon"><i class="fa-solid fa-folder-open"></i></div>
+        <div class="stat-value">{{ total }}</div>
+        <div class="stat-label">TOTAL ANALYSES</div>
+    </div>
+    
+    <div class="stat-card red">
+        <div class="stat-icon"><i class="fa-solid fa-virus"></i></div>
+        <div class="stat-value">{{ malignants }}</div>
+        <div class="stat-label">CAS MALIGNANTS</div>
+    </div>
+    
+    <div class="stat-card green">
+        <div class="stat-icon"><i class="fa-solid fa-shield-virus"></i></div>
+        <div class="stat-value">{{ benins }}</div>
+        <div class="stat-label">CAS BÉNINS</div>
+    </div>
+</div>
+
+<div class="progress-card">
+    <div class="progress-header">
+        <i class="fa-solid fa-chart-bar" style="color: var(--primary-color);"></i>
+        Répartition des Diagnostics
+    </div>
+    
+    <div class="progress-labels">
+        <span>Bénins ({{ benins }})</span>
+        <span>Malignants ({{ malignants }})</span>
+    </div>
+    
+    <div class="progress-bar-container">
+        {% set percent = 0 %}
+        {% if total > 0 %}
+            {% set percent = (malignants / total) * 100 %}
+        {% endif %}
+        <div class="progress-fill" style="width: {{ percent }}%;"></div>
+    </div>
+    
+    <div class="action-buttons">
+        <a href="/patients" class="btn-action btn-red">
+            <i class="fa-solid fa-list-ul"></i> Voir tous les patients
+        </a>
+        <a href="/predict" class="btn-action btn-white">
+            <i class="fa-solid fa-plus"></i> Nouvelle Analyse
+        </a>
+    </div>
+</div>
+{% endblock %}

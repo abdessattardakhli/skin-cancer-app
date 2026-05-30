@@ -1,0 +1,431 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+    --primary-red: #E63946;
+    --primary-hover: #D62828;
+    --dark-text: #2B2D42;
+    --gray-text: #8D99AE;
+    --bg-color: #F8F9FA;
+    --white: #FFFFFF;
+    --border-color: #EDF2F4;
+    --sidebar-width: 250px;
+}
+
+body {
+    background-color: var(--bg-color);
+    font-family: 'Inter', sans-serif;
+    color: var(--dark-text);
+    margin: 0;
+    padding: 0;
+}
+
+/* ==================== LOGIN PAGE ==================== */
+.login-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: var(--bg-color);
+}
+
+.login-card {
+    background: var(--white);
+    padding: 40px;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    border: 1px solid var(--border-color);
+}
+
+.login-icon {
+    font-size: 40px;
+    color: var(--primary-red);
+    margin-bottom: 15px;
+}
+
+.login-title {
+    font-weight: 700;
+    font-size: 24px;
+    color: var(--dark-text);
+    margin-bottom: 5px;
+}
+
+.login-subtitle {
+    font-size: 14px;
+    color: var(--gray-text);
+    margin-bottom: 30px;
+}
+
+.input-group-custom {
+    position: relative;
+    margin-bottom: 15px;
+}
+
+.input-group-custom i {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--gray-text);
+}
+
+.input-group-custom input {
+    width: 100%;
+    padding: 12px 15px 12px 40px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    background-color: var(--white);
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    transition: border-color 0.2s;
+}
+
+.input-group-custom input:focus {
+    outline: none;
+    border-color: var(--primary-red);
+}
+
+.btn-primary-custom {
+    width: 100%;
+    padding: 12px;
+    background-color: var(--primary-red);
+    color: var(--white);
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    margin-top: 10px;
+}
+
+.btn-primary-custom:hover {
+    background-color: var(--primary-hover);
+}
+
+.login-footer {
+    margin-top: 20px;
+    font-size: 13px;
+    color: var(--gray-text);
+}
+
+.login-footer a {
+    color: var(--primary-red);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+/* ==================== LAYOUT ==================== */
+.app-wrapper {
+    display: flex;
+    min-height: 100vh;
+}
+
+.sidebar {
+    width: var(--sidebar-width);
+    background-color: var(--white);
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    height: 100vh;
+    left: 0;
+    top: 0;
+    border-right: 1px solid var(--border-color);
+}
+
+.sidebar-header {
+    padding: 30px 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--primary-red);
+}
+
+.sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    gap: 5px;
+    flex-grow: 1;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 12px 20px;
+    color: var(--gray-text);
+    text-decoration: none;
+    font-weight: 500;
+    border-radius: 8px;
+    transition: all 0.2s;
+}
+
+.nav-item:hover {
+    color: var(--primary-red);
+    background-color: #FFF0F0;
+}
+
+.nav-item.active {
+    background-color: #FFF0F0;
+    color: var(--primary-red);
+    font-weight: 600;
+}
+
+.main-content {
+    flex-grow: 1;
+    margin-left: var(--sidebar-width);
+    padding: 40px;
+}
+
+.page-title {
+    font-weight: 700;
+    color: var(--dark-text);
+    font-size: 28px;
+    margin-bottom: 5px;
+}
+
+.page-subtitle {
+    color: var(--gray-text);
+    font-size: 15px;
+    margin-bottom: 40px;
+}
+
+/* ==================== DASHBOARD ==================== */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.stat-card {
+    background: var(--white);
+    padding: 25px;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+}
+
+.stat-icon {
+    font-size: 30px;
+    color: var(--primary-red);
+    background: #FFF0F0;
+    width: 60px;
+    height: 60px;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.stat-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.stat-value {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--dark-text);
+    line-height: 1.2;
+}
+
+.stat-label {
+    font-size: 12px;
+    color: var(--gray-text);
+    font-weight: 500;
+}
+
+.progress-card {
+    background: var(--white);
+    padding: 30px;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+}
+
+.progress-header {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--dark-text);
+    margin-bottom: 20px;
+}
+
+.progress-labels {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    margin-bottom: 10px;
+    color: var(--gray-text);
+}
+
+.progress-bar-container {
+    height: 10px;
+    background-color: var(--border-color);
+    border-radius: 5px;
+    margin-bottom: 30px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background-color: var(--primary-red);
+    border-radius: 5px;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 15px;
+}
+
+.btn-action {
+    padding: 10px 20px;
+    font-weight: 500;
+    border-radius: 8px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: background-color 0.2s;
+    font-size: 14px;
+}
+
+.btn-red {
+    background-color: var(--primary-red);
+    color: var(--white);
+}
+
+.btn-red:hover {
+    background-color: var(--primary-hover);
+    color: var(--white);
+}
+
+.btn-white {
+    background-color: var(--white);
+    color: var(--primary-red);
+    border: 1px solid var(--primary-red);
+}
+
+.btn-white:hover {
+    background-color: #FFF0F0;
+}
+
+/* ==================== UPLOAD FORM ==================== */
+.upload-card {
+    background: var(--white);
+    padding: 40px;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+    max-width: 700px;
+}
+
+.upload-area {
+    border: 2px dashed #CBD5E1;
+    padding: 40px 20px;
+    text-align: center;
+    background-color: #F8FAFC;
+    border-radius: 12px;
+    margin-bottom: 30px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.upload-area:hover {
+    border-color: var(--primary-red);
+    background-color: #FFF0F0;
+}
+
+.upload-icon {
+    font-size: 40px;
+    color: var(--gray-text);
+    margin-bottom: 15px;
+}
+
+.upload-area:hover .upload-icon {
+    color: var(--primary-red);
+}
+
+.upload-text {
+    font-weight: 600;
+    font-size: 16px;
+    color: var(--dark-text);
+}
+
+.upload-subtext {
+    font-size: 13px;
+    color: var(--gray-text);
+    margin-top: 5px;
+}
+
+.form-group label {
+    font-weight: 500;
+    color: var(--dark-text);
+    font-size: 14px;
+    margin-bottom: 8px;
+    display: block;
+}
+
+/* ==================== PATIENTS TABLE ==================== */
+.table-card {
+    background: var(--white);
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    overflow: hidden;
+}
+
+.table {
+    margin-bottom: 0;
+}
+
+.table th {
+    background-color: var(--bg-color);
+    color: var(--gray-text);
+    font-weight: 600;
+    font-size: 13px;
+    border-bottom: 1px solid var(--border-color);
+    padding: 15px;
+}
+
+.table td {
+    padding: 15px;
+    vertical-align: middle;
+    border-bottom: 1px solid var(--border-color);
+    color: var(--dark-text);
+    font-size: 14px;
+}
+
+/* FIX DU BADGE ICI */
+.badge-custom {
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    display: inline-block;
+}
+
+.badge-malignant {
+    background-color: #FFE5E5;
+    color: var(--primary-red) !important;
+}
+
+.badge-benign {
+    background-color: #F8F9FA;
+    color: var(--dark-text) !important;
+    border: 1px solid #DEE2E6;
+}
+
+/* ==================== ALERTS ==================== */
+.alert-custom {
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+}

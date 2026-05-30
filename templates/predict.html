@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block title %}Nouvelle Analyse - SkinScan AI{% endblock %}
+
+{% block content %}
+<h2 class="page-title">Nouvelle Analyse Dermatologique</h2>
+<p class="page-subtitle">Téléchargez une image claire de la lésion pour obtenir un diagnostic assisté par IA.</p>
+
+<div class="upload-card">
+    <form method="POST" enctype="multipart/form-data" id="uploadForm">
+        
+        <div class="upload-area" onclick="document.getElementById('fileInput').click()">
+            <div class="upload-icon">
+                <i class="fa-solid fa-cloud-arrow-up"></i>
+            </div>
+            <div class="upload-text" id="uploadText">Cliquez ou glissez une image ici</div>
+            <div class="upload-subtext">Format supporté: JPG, PNG (Max 5MB)</div>
+            <input type="file" name="image" id="fileInput" class="upload-input-file" required onchange="updateFileName(this)">
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label><i class="fa-solid fa-user"></i> Nom du Patient</label>
+                <input type="text" name="name" placeholder="Ex: Jean Dupont" required>
+            </div>
+            <div class="form-group">
+                <label><i class="fa-solid fa-calendar-days"></i> Âge</label>
+                <input type="number" name="age" placeholder="Ex: 45" required>
+            </div>
+        </div>
+
+        <button type="submit" class="btn-submit">
+            <i class="fa-solid fa-brain"></i> Lancer l'analyse IA
+        </button>
+    </form>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+function updateFileName(input) {
+    if (input.files && input.files[0]) {
+        document.getElementById('uploadText').innerText = input.files[0].name;
+    } else {
+        document.getElementById('uploadText').innerText = "Cliquez ou glissez une image ici";
+    }
+}
+</script>
+{% endblock %}

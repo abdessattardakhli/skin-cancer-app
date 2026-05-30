@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block title %}Résultat d'Analyse - SkinScan AI{% endblock %}
+
+{% block content %}
+<h2 class="page-title">Résultat du Diagnostic IA</h2>
+<p class="page-subtitle">Voici l'analyse basée sur le modèle VGG16</p>
+
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card border-0 shadow-sm" style="border-radius: 15px; overflow: hidden;">
+            <div class="card-body text-center p-5">
+                
+                <img src="{{ url_for('static', filename=img.split('static/')[1]) if 'static/' in img else img }}" class="img-fluid rounded mb-4" style="max-height: 250px; object-fit: cover;" alt="Image analysée">
+                
+                <h4 class="mb-3" style="font-weight: 600;">Diagnostic</h4>
+                {% if result == 'Malignant' %}
+                    <div style="background-color: #FFE5E5; color: var(--primary-red); padding: 15px; font-size: 20px; font-weight: 700; border-radius: 8px;">
+                        <i class="fa-solid fa-virus"></i> MALIGNANT
+                    </div>
+                {% else %}
+                    <div style="background-color: #F8F9FA; color: var(--dark-text); padding: 15px; font-size: 20px; font-weight: 700; border-radius: 8px; border: 1px solid #DEE2E6;">
+                        <i class="fa-solid fa-shield-virus"></i> BÉNIN
+                    </div>
+                {% endif %}
+                
+                <div class="mt-4">
+                    <p class="mb-1" style="font-weight: 700; text-transform: uppercase; color: var(--dark-red);">Niveau de confiance</p>
+                    <h3 style="font-size: 40px; font-weight: 700; color: var(--primary-red);">
+                        {{ prob }}%
+                    </h3>
+                </div>
+                
+                <div class="mt-5 action-buttons" style="justify-content: center;">
+                    <a href="/dashboard" class="btn-action btn-white">
+                        <i class="fa-solid fa-house"></i> Dashboard
+                    </a>
+                    <a href="/predict" class="btn-action btn-red">
+                        <i class="fa-solid fa-rotate-right"></i> Re-tester
+                    </a>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
